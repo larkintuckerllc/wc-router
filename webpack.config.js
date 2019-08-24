@@ -43,7 +43,6 @@ module.exports = env => {
         { from: 'node_modules/@webcomponents/webcomponentsjs', to: 'webcomponentsjs' },
       ]),
       new HtmlWebpackPlugin({
-        inject: 'head',
         template: 'public/index.html'
       })
     ]
