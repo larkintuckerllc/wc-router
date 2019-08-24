@@ -4,8 +4,8 @@ import './B';
 import './Home';
 import './NotFound';
 
-const outletEl = document.getElementById('root');
-const router = new Router(outletEl);
+const rootEl = document.getElementById('root');
+const router = new Router(rootEl);
 router.setRoutes([
   { path: '/', component: 'hello-home' },
   { path: '/a', component: 'hello-a' },
