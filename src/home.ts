@@ -1,5 +1,7 @@
+import { Router } from '@vaadin/router';
+
 const handleAClick = (): void => {
-  window.history.pushState({}, 'A', '/a');
+  Router.go('/a');
 };
 
 class Home extends HTMLElement {
