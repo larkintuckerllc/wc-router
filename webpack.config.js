@@ -9,7 +9,8 @@ module.exports = env => {
     entry: './src/index.ts',
     devtool: env.MODE === 'development' ? 'inline-source-map' : 'none',
     devServer: {
-      contentBase: './dist'
+      contentBase: './dist',
+      historyApiFallback: true
     },
     module: {
       rules: [

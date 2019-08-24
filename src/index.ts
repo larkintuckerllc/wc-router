@@ -1,7 +1,8 @@
 import { Router } from '@vaadin/router';
-import './a';
-import './b';
-import './home';
+import './A';
+import './B';
+import './Home';
+import './NotFound';
 
 document.addEventListener('DOMContentLoaded', () => {
   // HOME
@@ -33,5 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     { path: '/', component: 'hello-home' },
     { path: '/a', component: 'hello-a' },
     { path: '/b', component: 'hello-b' },
+    { path: '(.*)', component: 'hello-not-found' },
   ]);
 });
