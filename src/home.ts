@@ -16,6 +16,14 @@ const handleFruitBClick = (): void => {
   Router.go('/fruit/b');
 };
 
+const handleNavAClick = (): void => {
+  Router.go('/nav/a');
+};
+
+const handleNavBClick = (): void => {
+  Router.go('/nav/b');
+};
+
 class Home extends HTMLElement {
   private rootAEl: HTMLDivElement;
 
@@ -24,6 +32,10 @@ class Home extends HTMLElement {
   private rootFruitAEl: HTMLDivElement;
 
   private rootFruitBEl: HTMLDivElement;
+
+  private rootNavAEl: HTMLDivElement;
+
+  private rootNavBEl: HTMLDivElement;
 
   constructor() {
     super();
@@ -41,6 +53,18 @@ class Home extends HTMLElement {
     this.rootBEl.textContent = 'B';
     this.rootBEl.setAttribute('style', 'text-decoration: underline; cursor: pointer;');
     rootEl.appendChild(this.rootBEl);
+
+    // NAV A
+    this.rootNavAEl = document.createElement('div');
+    this.rootNavAEl.textContent = 'Nav A';
+    this.rootNavAEl.setAttribute('style', 'text-decoration: underline; cursor: pointer;');
+    rootEl.appendChild(this.rootNavAEl);
+
+    // NAV B
+    this.rootNavBEl = document.createElement('div');
+    this.rootNavBEl.textContent = 'Nav B';
+    this.rootNavBEl.setAttribute('style', 'text-decoration: underline; cursor: pointer;');
+    rootEl.appendChild(this.rootNavBEl);
 
     // FRUIT A
     this.rootFruitAEl = document.createElement('div');
@@ -62,6 +86,8 @@ class Home extends HTMLElement {
     this.rootBEl.addEventListener('click', handleBClick);
     this.rootFruitAEl.addEventListener('click', handleFruitAClick);
     this.rootFruitBEl.addEventListener('click', handleFruitBClick);
+    this.rootNavAEl.addEventListener('click', handleNavAClick);
+    this.rootNavBEl.addEventListener('click', handleNavBClick);
   }
 
   public disconnectedCallback(): void {
@@ -69,6 +95,8 @@ class Home extends HTMLElement {
     this.rootBEl.removeEventListener('click', handleBClick);
     this.rootFruitAEl.removeEventListener('click', handleFruitAClick);
     this.rootFruitBEl.removeEventListener('click', handleFruitBClick);
+    this.rootNavAEl.removeEventListener('click', handleNavAClick);
+    this.rootNavBEl.removeEventListener('click', handleNavBClick);
   }
 }
 
