@@ -8,8 +8,12 @@ const handleBClick = (): void => {
   Router.go('/b');
 };
 
-const handleFruitClick = (): void => {
+const handleFruitAClick = (): void => {
   Router.go('/fruit/a');
+};
+
+const handleFruitBClick = (): void => {
+  Router.go('/fruit/b');
 };
 
 class Home extends HTMLElement {
@@ -17,7 +21,9 @@ class Home extends HTMLElement {
 
   private rootBEl: HTMLDivElement;
 
-  private rootFruitEl: HTMLDivElement;
+  private rootFruitAEl: HTMLDivElement;
+
+  private rootFruitBEl: HTMLDivElement;
 
   constructor() {
     super();
@@ -36,11 +42,17 @@ class Home extends HTMLElement {
     this.rootBEl.setAttribute('style', 'text-decoration: underline; cursor: pointer;');
     rootEl.appendChild(this.rootBEl);
 
-    // FRUIT
-    this.rootFruitEl = document.createElement('div');
-    this.rootFruitEl.textContent = 'Fruit';
-    this.rootFruitEl.setAttribute('style', 'text-decoration: underline; cursor: pointer;');
-    rootEl.appendChild(this.rootFruitEl);
+    // FRUIT A
+    this.rootFruitAEl = document.createElement('div');
+    this.rootFruitAEl.textContent = 'Fruit A';
+    this.rootFruitAEl.setAttribute('style', 'text-decoration: underline; cursor: pointer;');
+    rootEl.appendChild(this.rootFruitAEl);
+
+    // FRUIT B
+    this.rootFruitBEl = document.createElement('div');
+    this.rootFruitBEl.textContent = 'Fruit B';
+    this.rootFruitBEl.setAttribute('style', 'text-decoration: underline; cursor: pointer;');
+    rootEl.appendChild(this.rootFruitBEl);
 
     shadow.appendChild(rootEl);
   }
@@ -48,13 +60,15 @@ class Home extends HTMLElement {
   public connectedCallback(): void {
     this.rootAEl.addEventListener('click', handleAClick);
     this.rootBEl.addEventListener('click', handleBClick);
-    this.rootFruitEl.addEventListener('click', handleFruitClick);
+    this.rootFruitAEl.addEventListener('click', handleFruitAClick);
+    this.rootFruitBEl.addEventListener('click', handleFruitBClick);
   }
 
   public disconnectedCallback(): void {
     this.rootAEl.removeEventListener('click', handleAClick);
     this.rootBEl.removeEventListener('click', handleBClick);
-    this.rootFruitEl.removeEventListener('click', handleFruitClick);
+    this.rootFruitAEl.removeEventListener('click', handleFruitAClick);
+    this.rootFruitBEl.removeEventListener('click', handleFruitBClick);
   }
 }
 

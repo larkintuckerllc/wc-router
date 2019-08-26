@@ -4,4 +4,8 @@ declare module '@vaadin/router' {
     constructor(someParam?: any);
     setRoutes: (someParam?: any) => any;
   }
+  
+  export interface Location {
+    params: { [key: string]: string };
+  }
 }

@@ -1,4 +1,4 @@
-import { Router } from '@vaadin/router';
+import { Location, Router } from '@vaadin/router';
 
 const handleClick = (): void => {
   Router.go('/');
@@ -6,6 +6,8 @@ const handleClick = (): void => {
 
 class Fruit extends HTMLElement {
   private rootHomeEl: HTMLDivElement;
+
+  private rootValueEl: HTMLDivElement;
 
   constructor() {
     super();
@@ -23,11 +25,20 @@ class Fruit extends HTMLElement {
     rootTextEl.textContent = 'Hello Fruit';
     rootEl.appendChild(rootTextEl);
 
+    // TEXT
+    this.rootValueEl = document.createElement('div');
+    this.rootValueEl.textContent = '';
+    rootEl.appendChild(this.rootValueEl);
+
     shadow.appendChild(rootEl);
   }
 
-  public onAfterEnter(location: any): void {
-    window.console.log(location);
+  public onAfterEnter(location: Location): void {
+    const { id } = location.params;
+    if (id === undefined) {
+      return;
+    }
+    this.rootValueEl.textContent = id;
   }
 
   public connectedCallback(): void {
