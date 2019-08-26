@@ -9,7 +9,7 @@ const handleBClick = (): void => {
 };
 
 const handleFruitClick = (): void => {
-  Router.go('/fruit');
+  Router.go('/fruit/a');
 };
 
 class Home extends HTMLElement {

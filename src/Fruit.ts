@@ -26,6 +26,10 @@ class Fruit extends HTMLElement {
     shadow.appendChild(rootEl);
   }
 
+  public onAfterEnter(location: any): void {
+    window.console.log(location);
+  }
+
   public connectedCallback(): void {
     this.rootHomeEl.addEventListener('click', handleClick);
   }
